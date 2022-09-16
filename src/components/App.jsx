@@ -4,8 +4,9 @@ import { ContactForm } from './ContactForm/ContackForm';
 
 export class App extends Component  {
   state = {
-  
-  };
+  contacts: [],
+  name: ''
+}
 
   render() {
     const addContact = this.addContact;

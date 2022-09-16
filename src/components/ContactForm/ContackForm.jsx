@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field } from 'formik';
-// import PropTypes from 'prop-types';
+import { nanoid } from "nanoid";
+import PropTypes from 'prop-types';
 
 export const ContactForm = () => {
     
@@ -8,6 +9,8 @@ export const ContactForm = () => {
         console.log(values);
         resetForm();
     };
+
+    const loginInputId = nanoid();
     
     return (
         <Formik
@@ -20,6 +23,7 @@ export const ContactForm = () => {
                     <Field
                         type="text"
                         name="name"
+                        id={loginInputId}
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
@@ -41,3 +45,7 @@ export const ContactForm = () => {
         
     );
 };
+
+ContactForm.prototype = {
+    handleSubmit: PropTypes.func.isRequired,
+}
