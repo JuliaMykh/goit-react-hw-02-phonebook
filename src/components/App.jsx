@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
+import { Message } from './App.styled';
 
 
 export class App extends Component  {
@@ -30,11 +31,9 @@ export class App extends Component  {
       }));
   };
 
-
 // функція зміни стану фільтру
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
-  
   };
 
   // фільтрує і повертає результат
@@ -59,6 +58,7 @@ export class App extends Component  {
     const changeFilter = this.changeFilter;
     const filtredContacts = this.filtredContacts();
     const deleteContact = this.deleteContact;
+    const length = this.state.contacts.length;
 
     return (
   <div>
@@ -67,10 +67,16 @@ export class App extends Component  {
 
       <h2>Contacts</h2>
         <Filter filter={filter} changeFilter={changeFilter} />
+      {/*рендер або сповіщення в разі порожнього списку контактів  */}
+        {length > 0 ? (
         <ContactList
           contacts={filtredContacts}
           onDeleteContact={deleteContact}
           />
+        ) : (
+            <Message>Contact list is empty</Message>
+        )}
+        
     </div>
 )
   };

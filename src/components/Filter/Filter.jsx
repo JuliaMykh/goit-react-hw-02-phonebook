@@ -1,9 +1,11 @@
 import React from "react";
+import PropTypes from 'prop-types';
+import { FilterText } from './Filter.styled';
 
 export const Filter = ({ filter, changeFilter }) => {
   return (
     <label>
-      <p>Find contacts by name</p>
+      <FilterText>Find contacts by name</FilterText>
       <input
         type="text"
         value={filter}
@@ -13,7 +15,7 @@ export const Filter = ({ filter, changeFilter }) => {
   );
 }
 
-// Filter.prototype = {
-//   filter: PropTypes.string.isRequired,
-//   changeFilter: PropTypes.func.isRequired,
-// };
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  changeFilter: PropTypes.func.isRequired,
+};

@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form, Field } from 'formik';
 import { nanoid } from "nanoid";
 import PropTypes from 'prop-types';
+import { LabelForm, SpanForm, ButtonForm } from './ContactForm.styled';
 
 export const ContactForm = ({onSubmit}) => {
     
@@ -19,8 +20,8 @@ export const ContactForm = ({onSubmit}) => {
             onSubmit={handleSubmit}
         >
             <Form >
-                <label>
-                    Name
+                <LabelForm>
+                    <SpanForm>Name</SpanForm> 
                     <Field
                         type="text"
                         name="name"
@@ -29,9 +30,9 @@ export const ContactForm = ({onSubmit}) => {
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
                     />
-                </label>
-                <label>
-                    Number
+                </LabelForm>
+                <LabelForm>
+                    <SpanForm> Number</SpanForm>
                     <Field
                         type="tel"
                         name="number"
@@ -39,14 +40,14 @@ export const ContactForm = ({onSubmit}) => {
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                     />
-                </label>
-                <button type="submit" >Add Contact</button>
+                </LabelForm>
+                <ButtonForm type="submit" >Add Contact</ButtonForm>
             </Form>
         </Formik>
         
     );
 };
 
-ContactForm.prototype = {
-    handleSubmit: PropTypes.func.isRequired,
+ContactForm.propTypes = {
+    handleSubmit: PropTypes.func,
 }
