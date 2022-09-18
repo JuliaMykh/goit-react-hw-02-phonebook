@@ -3,15 +3,16 @@ import { Formik, Form, Field } from 'formik';
 import { nanoid } from "nanoid";
 import PropTypes from 'prop-types';
 
-export const ContactForm = () => {
+export const ContactForm = ({onSubmit}) => {
     
     const handleSubmit = (values, { resetForm }) => {
         console.log(values);
+        onSubmit(values);
         resetForm();
     };
-
-    const loginInputId = nanoid();
     
+    const loginInputId = nanoid();
+
     return (
         <Formik
             initialValues={{ name: '', number: '' }}
