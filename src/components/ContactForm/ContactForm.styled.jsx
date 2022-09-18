@@ -18,6 +18,7 @@ export const ButtonForm = styled.button`
     width: 100px;
     height: 30px;
     border-radius: 5px;
+    border: none;
     cursor: pointer;
     &:hover{
         background-color: #5b5bd5;
