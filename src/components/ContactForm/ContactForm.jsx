@@ -49,5 +49,5 @@ export const ContactForm = ({onSubmit}) => {
 };
 
 ContactForm.propTypes = {
-    handleSubmit: PropTypes.func,
+    onSubmit: PropTypes.func.isRequired,
 }
